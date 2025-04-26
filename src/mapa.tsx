@@ -12,7 +12,7 @@ const Mapa = ({ geoData }: any) => {
 
   useEffect(() => {
     const width = 800;
-    const height = 600;
+    const height = 550;
 
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
