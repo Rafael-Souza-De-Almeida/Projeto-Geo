@@ -39,7 +39,7 @@ function ComunidadesTurcas({ turcasData, base_layer }: any) {
       .attr("opacity", 1)
       .on("end", function () {
         d3.select(this)
-          .on("mousemove", (event, d: any) => {
+          .on("mousemove", (event: any) => {
             const [x, y] = d3.pointer(event);
             setTooltip({
               show: true,

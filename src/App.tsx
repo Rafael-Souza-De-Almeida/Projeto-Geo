@@ -11,7 +11,6 @@ import comunidades_cristas_metadados from "./data/comunidades_cristas_metadados.
 function App() {
   const [geoData, setGeoData] = useState<any>();
   const [comunidade, setComunidade] = useState<string>("gerais");
-  const [showDetails, setShowDetails] = useState<boolean>(false);
 
   useEffect(() => {
     setGeoData(comunidades_gerais);
