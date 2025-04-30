@@ -1,11 +1,16 @@
 import * as d3 from "d3";
 import { useRef, useState, useEffect } from "react";
 
+import DetalhamentoCristas from "./detalhamentoCristas";
+
 const ComunidadesCristas = ({
   cristasData,
   base_layer,
   second_base_layer,
 }: any) => {
+  const [selectedCommunity, setSelectedCommunity] = useState<any>();
+  const [open, setOpen] = useState<boolean>(false);
+
   const svgRef = useRef(null);
   const [tooltip, setTooltip] = useState({
     show: false,
@@ -125,33 +130,23 @@ const ComunidadesCristas = ({
           .on("mouseout", function () {
             d3.select(this).attr("fill", "red");
             setTooltip((prev) => ({ ...prev, show: false }));
+          })
+          .on("click", (event, d: any) => {
+            event.preventDefault();
+            setSelectedCommunity(d.properties);
+            setOpen(true);
           });
       });
   }, [cristasData, second_base_layer, base_layer]);
 
   return (
-    <div className="relative">
-      <svg ref={svgRef} width={800} height={600} />
-      {tooltip.show && (
-        <div
-          style={{
-            position: "absolute",
-            top: tooltip.y + 10,
-            left: tooltip.x + 10,
-            background: "#fff",
-            color: "black",
-            border: "1px solid #ccc",
-            padding: "5px",
-            pointerEvents: "none",
-            borderRadius: "4px",
-            fontSize: "0.9rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {tooltip.content}
-        </div>
-      )}
-    </div>
+    <DetalhamentoCristas
+      selectedCommunity={selectedCommunity}
+      tooltip={tooltip}
+      open={open}
+      setOpen={setOpen}
+      svgRef={svgRef}
+    />
   );
 };
 

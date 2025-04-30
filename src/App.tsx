@@ -60,7 +60,7 @@ function App() {
           Comunidades Cristãs
         </button>
       </div>
-      <div className="border-2 border-black px-32 py-12 mt-16 mb-72 bg-blue-200">
+      <div className="border-2 border-black mt-16 mb-72 bg-blue-200 relative w-full h-full">
         {geoData ? (
           comunidade === "gerais" ? (
             <ComunidadesGerais geoData={geoData} />

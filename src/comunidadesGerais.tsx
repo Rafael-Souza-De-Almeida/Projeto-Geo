@@ -49,7 +49,17 @@ const ComunidadesGerais = ({ geoData }: any) => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+      }}
+    >
       <svg ref={svgRef} width={800} height={600} />
       {tooltip.show && (
         <div
