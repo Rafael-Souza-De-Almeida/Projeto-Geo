@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import { useRef, useState, useEffect } from "react";
+import DetalhamentoTurcas from "./detalhamentoTurcas";
 
 function ComunidadesTurcas({ turcasData, base_layer }: any) {
   const svgRef = useRef(null);
@@ -9,6 +10,9 @@ function ComunidadesTurcas({ turcasData, base_layer }: any) {
     y: 0,
     content: "",
   });
+
+  const [selectedCommunity, setSelectedCommunity] = useState<any>();
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const width = 800;
@@ -113,30 +117,23 @@ function ComunidadesTurcas({ turcasData, base_layer }: any) {
                 : "rgba(169, 169, 169, 0.7)"
             );
             setTooltip((prev) => ({ ...prev, show: false }));
+          })
+          .on("click", (event, d: any) => {
+            event.preventDefault();
+            setSelectedCommunity(d.properties);
+            setOpen(true);
           });
       });
   }, [turcasData, base_layer]);
 
   return (
-    <div style={{ position: "relative" }}>
-      <svg ref={svgRef} width={800} height={600} />
-      {tooltip.show && (
-        <div
-          style={{
-            position: "absolute",
-            top: tooltip.y + 10,
-            left: tooltip.x + 10,
-            background: "#fff",
-            color: "black",
-            border: "1px solid #ccc",
-            padding: "5px",
-            pointerEvents: "none",
-          }}
-        >
-          {tooltip.content}
-        </div>
-      )}
-    </div>
+    <DetalhamentoTurcas
+      selectedCommunity={selectedCommunity}
+      tooltip={tooltip}
+      open={open}
+      setOpen={setOpen}
+      svgRef={svgRef}
+    />
   );
 }
 
