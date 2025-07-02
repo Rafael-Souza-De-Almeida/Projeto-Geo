@@ -12,6 +12,9 @@ export default function DetalhamentoTurcas({
   svgRef,
 }: any) {
   function separaMotivacao(motivacao: string, pais_motivacao: string) {
+    if (motivacao === "(---)") {
+      return "Sem dados";
+    }
     const posicao = motivacao.indexOf("(Grego)/ ");
 
     if (pais_motivacao === "grego") {
@@ -48,7 +51,9 @@ export default function DetalhamentoTurcas({
         return "Toponímia não sofreu qualquer tipo de alteração";
       case "Parcialmente":
         return "Toponímia sofreu alteração apenas linguística, mas manteve sua motivação.";
-      case "(...)":
+      case "(---)":
+        return "Sem dados";
+      default:
         return "Sem dados";
     }
   }

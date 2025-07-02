@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+
 import comunidades_gerais from "./data/comunidades_gerais.json";
 import ComunidadesGerais from "./comunidadesGerais";
 import ComunidadesTurcas from "./comunidadesTurcas";
@@ -7,14 +8,18 @@ import ComunidadesCristas from "./comunidadesCristas";
 import comunidades_turcas_metadados from "./data/comunidades_turcas_metadados.json";
 import chipre_inteiro_metadados from "./data/chipre_inteiro_metadados.json";
 import comunidades_cristas_metadados from "./data/comunidades_cristas_metadados.json";
+import Globo from "./globo";
 
 function App() {
   const [geoData, setGeoData] = useState<any>();
   const [comunidade, setComunidade] = useState<string>("gerais");
+  const [globoFinalizado, setGloboFinalizado] = useState(false); // ✅ 2. Controla se o globo terminou
 
   useEffect(() => {
-    setGeoData(comunidades_gerais);
-  }, []);
+    if (globoFinalizado) {
+      setGeoData(comunidades_gerais);
+    }
+  }, [globoFinalizado]);
 
   function handleGeoData(nome: string) {
     switch (nome) {
@@ -31,6 +36,10 @@ function App() {
         setGeoData(comunidades_cristas_metadados);
         break;
     }
+  }
+
+  if (!globoFinalizado) {
+    return <Globo onFinish={() => setGloboFinalizado(true)} />;
   }
 
   return (
@@ -75,9 +84,7 @@ function App() {
               second_base_layer={comunidades_turcas_metadados}
               base_layer={chipre_inteiro_metadados}
             />
-          ) : (
-            ""
-          )
+          ) : null
         ) : (
           <p>Carregando mapa...</p>
         )}

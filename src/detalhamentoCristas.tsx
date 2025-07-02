@@ -50,6 +50,8 @@ export default function DetalhamentoCristas({
         return "Toponímia sofreu alteração apenas linguística, mas manteve sua motivação.";
       case "(...)":
         return "Sem dados";
+      default:
+        return "Sem dados";
     }
   }
 
