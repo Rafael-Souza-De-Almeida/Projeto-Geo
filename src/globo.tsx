@@ -76,12 +76,12 @@ const Globo = ({ onFinish }: GloboProps) => {
               setTimeout(() => {
                 d3.select(svgRef.current)
                   .transition()
-                  .duration(500)
+                  .duration(300)
                   .style("opacity", 0)
                   .on("end", () => {
                     onFinish();
                   });
-              }, 1500);
+              }, 100);
             });
         });
     };

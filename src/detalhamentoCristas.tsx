@@ -141,7 +141,7 @@ export default function DetalhamentoCristas({
                 </button>
               </div>
 
-              <div className=" pt-12 p-4 overflow-auto h-full">
+              <div className=" pt-12 p-4 overflow-auto h-full text-center">
                 <div className="flex flex-col space-y-3 mt-12">
                   <p className="text-md">
                     Topônimo em grego:{" "}

@@ -50,7 +50,7 @@ export default function DetalhamentoTurcas({
       case "Não":
         return "Toponímia não sofreu qualquer tipo de alteração";
       case "Parcialmente":
-        return "Toponímia sofreu alteração apenas linguística, mas manteve sua motivação.";
+        return "Toponímia sofreu alteração apenas linguística (manteve sua motivação) ou apenas em sua motivação (manteve a linguística).";
       case "(---)":
         return "Sem dados";
       default:
@@ -118,7 +118,7 @@ export default function DetalhamentoTurcas({
 
         {open ? (
           <ResizablePanel defaultSize={35} minSize={25} maxSize={40}>
-            <div className="relative  h-full w-full bg-white border-l">
+            <div className="relative h-full w-full bg-white border-l">
               <div className="absolute top-0 right-0 left-0 flex items-center justify-between px-4 py-2 border-b bg-white z-10">
                 <span className="text-sm font-medium text-gray-800">
                   Topônimos modificados pela República Turca de Chipre do Norte
@@ -145,7 +145,7 @@ export default function DetalhamentoTurcas({
               </div>
 
               <div className=" pt-12 p-4 overflow-auto h-full">
-                <div className="flex flex-col space-y-3 mt-12">
+                <div className="flex flex-col space-y-3 mt-12 text-center">
                   <p className="text-md">
                     Topônimo em grego:{" "}
                     <span className="text-slate-500 text-md">
