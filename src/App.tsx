@@ -70,7 +70,7 @@ function App() {
           onClick={() => handleGeoData("cristas")}
           className="bg-orange-500 px-4 text-white py-2 cursor-pointer rounded-lg hover:bg-orange-800"
         >
-          Comunidades Cristãs
+          Comunidades cristãs
         </button>
       </div>
       <div className="border-2 border-black mt-16 bg-blue-200 relative w-full h-full">
