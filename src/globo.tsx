@@ -89,12 +89,14 @@ const Globo = ({ onFinish }: GloboProps) => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-white">
-      <svg
-        ref={svgRef}
-        width={800}
-        height={600}
-        className="transition-opacity duration-500"
-      />
+      <div className="w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-[800px] aspect-[4/3]">
+        <svg
+          ref={svgRef}
+          viewBox="0 0 800 600"
+          preserveAspectRatio="xMidYMid meet"
+          className="w-full h-full transition-opacity duration-500"
+        />
+      </div>
     </div>
   );
 };

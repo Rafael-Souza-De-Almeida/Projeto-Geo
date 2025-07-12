@@ -47,12 +47,12 @@ function App() {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">
-      <div>
-        <h1 className="text-6xl/1.1 my-16 font-bold font-title text-black">
+      <div className="text-center">
+        <h1 className="text-3xl lg:text-6xl/1.1 my-16 font-bold font-title text-black">
           Atlas toponímico digital da República de Chipre
         </h1>
       </div>
-      <div className="flex gap-8 items-center">
+      <div className="px-4 grid grid-cols-3 gap-6 lg:flex lg:gap-8 lg:items-center">
         <button
           onClick={() => handleGeoData("gerais")}
           className="bg-blue-500 px-4 text-white py-2 cursor-pointer rounded-lg hover:bg-blue-800"
@@ -73,7 +73,7 @@ function App() {
           Comunidades cristãs
         </button>
       </div>
-      <div className="border-2 border-black mt-16 bg-blue-200 relative w-full h-full">
+      <div className="border-2 w-[480px] border-black mt-16 bg-blue-200 relative lg:w-screen lg:h-full">
         {geoData ? (
           comunidade === "gerais" ? (
             <div>

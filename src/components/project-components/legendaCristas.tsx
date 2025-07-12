@@ -1,7 +1,7 @@
 export default function LegendaCristas() {
   return (
-    <div className="flex justiify-between">
-      <div className="p-4 py-8.5 border border-black bg-white text-sm w-[50%] ">
+    <div className="flex flex-col lg:gap-0 lg:flex-row w-full">
+      <div className="p-4 py-8.5 border border-black bg-white text-sm w-full lg:w-1/2">
         <h2 className="font-semibold text-base mb-2 underline">Legenda</h2>
 
         <div className="mb-4">

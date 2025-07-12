@@ -60,18 +60,36 @@ const ComunidadesGerais = ({ geoData }: any) => {
         overflow: "hidden",
       }}
     >
-      <svg ref={svgRef} width={800} height={600} />
+      <svg
+        ref={svgRef}
+        width={800}
+        height={600}
+        viewBox="0 0 800 600"
+        preserveAspectRatio="xMidYMid meet"
+      />
       {tooltip.show && (
         <div
           style={{
             position: "absolute",
-            top: tooltip.y + 10,
-            left: tooltip.x + 10,
+            top:
+              tooltip.y + 120 > window.innerHeight
+                ? Math.max(tooltip.y - 110, 10)
+                : tooltip.y + 10,
+            left:
+              tooltip.x + 125 > window.innerWidth
+                ? tooltip.x - 370
+                : tooltip.x + 10,
+            maxWidth: "200px",
             background: "#fff",
-            color: "black",
+            color: "#000",
             border: "1px solid #ccc",
-            padding: "5px",
+            padding: "6px 10px",
+            borderRadius: "4px",
+            fontSize: "0.875rem",
             pointerEvents: "none",
+            zIndex: 100,
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+            transition: "top 0.05s ease-out, left 0.05s ease-out",
           }}
         >
           {tooltip.content}

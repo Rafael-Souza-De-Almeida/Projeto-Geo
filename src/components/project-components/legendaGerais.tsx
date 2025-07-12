@@ -5,7 +5,7 @@ export default function LegendaCristas() {
         <h2 className="font-semibold text-base mb-2">
           Produção cartográfica: Lucas Lanzaro Reis
         </h2>
-        <h2 className="font-semibold text-base mb-2">
+        <h2 className="font-semibold text-center text-base mb-2">
           Programação e sistematização dos dados: Rafael Souza De Almeida
         </h2>
       </div>
