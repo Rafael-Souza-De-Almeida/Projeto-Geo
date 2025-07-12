@@ -230,8 +230,8 @@ export default function DetalhamentoTurcas({
             </ResizablePanel>
 
             <div className="sm:hidden absolute top-0 left-0 right-0 h-full bg-white z-30 p-7 overflow-auto shadow-lg border border-gray-300">
-              <div className="flex justify-between items-center border-b pb-2">
-                <span className="text-base text-center font-medium text-gray-800">
+              <div className="flex justify-center lg:justify-between items-center border-b pb-2">
+                <span className=" text-xs w-[70%] lg:w-[100%] lg:text-base text-center font-medium text-gray-800">
                   Topônimos modificados pela República Turca de Chipre do Norte
                 </span>
                 <button
@@ -255,8 +255,8 @@ export default function DetalhamentoTurcas({
                 </button>
               </div>
 
-              <div className="pt-12 p-4 overflow-auto h-full">
-                <div className="flex flex-col space-y-3 mt-12 text-center">
+              <div className="pt-12 px-8 lg:p-4 overflow-auto h-full">
+                <div className="flex flex-col space-y-3 mt-12 lg:text-center ">
                   <p className="text-md">
                     Topônimo em grego:{" "}
                     <span className="text-slate-500">
