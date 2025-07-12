@@ -1,14 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
 const ComunidadesGerais = ({ geoData }: any) => {
   const svgRef = useRef(null);
-  const [tooltip, setTooltip] = useState({
-    show: false,
-    x: 0,
-    y: 0,
-    content: "",
-  });
 
   useEffect(() => {
     const width = 800;
@@ -21,7 +15,22 @@ const ComunidadesGerais = ({ geoData }: any) => {
       .geoIdentity()
       .reflectY(true)
       .fitSize([width, height], geoData);
+
     const pathGenerator: any = d3.geoPath().projection(projection);
+
+    const tooltip = d3
+      .select("body")
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("position", "absolute")
+      .style("background-color", "white")
+      .style("border", "1px solid #ccc")
+      .style("border-radius", "4px")
+      .style("padding", "6px 10px")
+      .style("font-size", "0.75rem")
+      .style("pointer-events", "none")
+      .style("z-index", "100");
 
     svg
       .selectAll("path")
@@ -30,71 +39,49 @@ const ComunidadesGerais = ({ geoData }: any) => {
       .attr("d", pathGenerator)
       .attr("fill", "#FFFACD")
       .attr("stroke", "#333")
-      .on("mousemove", (event, d: any) => {
-        const [x, y] = d3.pointer(event);
-        setTooltip({
-          show: true,
-          x,
-          y,
-          content: `${d.properties.VIL_NM_G} (${d.properties.VIL_NM_E})`,
-        });
-      })
+      .style("cursor", "pointer")
       .on("mouseover", function () {
+        tooltip.style("opacity", 1);
         d3.select(this).attr("fill", "red");
       })
-      .on("mouseout", function () {
+      .on("mousemove", function (event, d: any) {
+        tooltip
+          .html(
+            `<strong>${d.properties.VIL_NM_G}</strong><br/>(${d.properties.VIL_NM_E})`
+          )
+          .style("left", () => {
+            const tooltipWidth = 200;
+            const mouseX = event.pageX;
+            return mouseX + tooltipWidth > window.innerWidth
+              ? `${mouseX - tooltipWidth - 10}px`
+              : `${mouseX + 10}px`;
+          })
+          .style("top", () => {
+            const tooltipHeight = 60;
+            const mouseY = event.pageY;
+            return mouseY + tooltipHeight > window.innerHeight
+              ? `${mouseY - tooltipHeight - 10}px`
+              : `${mouseY + 10}px`;
+          });
+      })
+      .on("mouseleave", function () {
+        tooltip.style("opacity", 0);
         d3.select(this).attr("fill", "#FFFACD");
-        setTooltip({ ...tooltip, show: false });
       });
-  }, []);
+
+    return () => {
+      tooltip.remove();
+    };
+  }, [geoData]);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100%",
-        overflow: "hidden",
-      }}
-    >
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
       <svg
         ref={svgRef}
-        width={800}
-        height={600}
+        className="w-full h-[60vw] max-h-[80vh] sm:h-[500px] md:h-[550px] lg:h-[600px]"
         viewBox="0 0 800 600"
         preserveAspectRatio="xMidYMid meet"
       />
-      {tooltip.show && (
-        <div
-          style={{
-            position: "absolute",
-            top:
-              tooltip.y + 120 > window.innerHeight
-                ? Math.max(tooltip.y - 110, 10)
-                : tooltip.y + 10,
-            left:
-              tooltip.x + 125 > window.innerWidth
-                ? tooltip.x - 370
-                : tooltip.x + 10,
-            maxWidth: "200px",
-            background: "#fff",
-            color: "#000",
-            border: "1px solid #ccc",
-            padding: "6px 10px",
-            borderRadius: "4px",
-            fontSize: "0.875rem",
-            pointerEvents: "none",
-            zIndex: 100,
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            transition: "top 0.05s ease-out, left 0.05s ease-out",
-          }}
-        >
-          {tooltip.content}
-        </div>
-      )}
     </div>
   );
 };

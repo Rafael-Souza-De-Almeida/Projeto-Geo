@@ -1,7 +1,7 @@
 export default function LegendaCristas() {
   return (
     <div className="flex flex-col lg:gap-0 lg:flex-row w-full">
-      <div className="p-4 py-8.5 border border-black bg-white text-sm w-full lg:w-1/2">
+      <div className="p-4 px-12 lg:py-8.5 border border-black bg-white text-sm w-full lg:w-1/2">
         <h2 className="font-semibold text-base mb-2 underline">Legenda</h2>
 
         <div className="mb-4">
@@ -19,7 +19,7 @@ export default function LegendaCristas() {
         </div>
 
         <div>
-          <p className="text-gray-600 italic text-xs">
+          <p className="text-gray-600 italic lg:text-xs text-[7px]">
             Fonte: Dados gráficos baseados em arquivos GeoJSON. Dados não
             gráficos obtidos de fontes oficiais da República de Chipre.
           </p>
@@ -27,11 +27,11 @@ export default function LegendaCristas() {
       </div>
 
       <div className="flex flex-col p-4 border border-black bg-white text-sm w-full items-center justify-center">
-        <h2 className="font-semibold text-base mb-2">
+        <h2 className="font-semibold text-md lg:text-base mb-2">
           Produção cartográfica: Lucas Lanzaro Reis
         </h2>
-        <h2 className="font-semibold text-base mb-2">
-          Programação e sistematização dos dados: Rafael Souza De Almeida
+        <h2 className="font-semibold text-md lg:text-base mb-2">
+          Programação: Rafael Souza De Almeida
         </h2>
       </div>
     </div>

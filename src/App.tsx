@@ -52,7 +52,7 @@ function App() {
           Atlas toponímico digital da República de Chipre
         </h1>
       </div>
-      <div className="px-4 grid grid-cols-3 gap-6 lg:flex lg:gap-8 lg:items-center">
+      <div className="mx-16 grid grid-cols-1 gap-2 lg:flex lg:gap-8 lg:items-center">
         <button
           onClick={() => handleGeoData("gerais")}
           className="bg-blue-500 px-4 text-white py-2 cursor-pointer rounded-lg hover:bg-blue-800"

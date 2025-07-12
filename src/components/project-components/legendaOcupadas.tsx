@@ -1,7 +1,7 @@
 export default function LegendaOcupadas() {
   return (
-    <div className="flex flex-col lg:gap-0 lg:flex-row w-full">
-      <div className="p-4 border border-black bg-white text-sm w-full lg:w-1/2">
+    <div className="flex flex-col lg:flex-row w-full">
+      <div className="p-4 border border-black px-12  bg-white text-sm w-full lg:w-1/2">
         <h2 className="font-semibold text-base mb-2 underline">Legenda</h2>
 
         <div className="flex flex-col gap-1">
@@ -28,7 +28,7 @@ export default function LegendaOcupadas() {
           </div>
 
           <div>
-            <p className="text-gray-600 italic text-xs mt-2">
+            <p className="text-gray-600 italic lg:text-xs text-[7px]">
               Fonte: Dados gráficos baseados em arquivos GeoJSON. Dados não
               gráficos obtidos de fontes oficiais da República de Chipre.
             </p>
@@ -36,12 +36,12 @@ export default function LegendaOcupadas() {
         </div>
       </div>
 
-      <div className="flex flex-col p-4 border border-black bg-white text-sm w-full  items-center justify-center text-center">
-        <h2 className="font-semibold text-base mb-2">
+      <div className="flex flex-col p-4 border border-black bg-white text-sm w-full items-center justify-center text-center">
+        <h2 className="font-semibold text-center text-md lg:text-base mb-2">
           Produção cartográfica: Lucas Lanzaro Reis
         </h2>
-        <h2 className="font-semibold text-base mb-2">
-          Programação e sistematização dos dados: Rafael Souza De Almeida
+        <h2 className="font-semibold text-center text-md lg:text-base mb-2">
+          Programação: Rafael Souza De Almeida
         </h2>
       </div>
     </div>

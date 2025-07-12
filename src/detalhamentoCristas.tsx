@@ -92,37 +92,37 @@ export default function DetalhamentoCristas({
           >
             <svg
               ref={svgRef}
-              width={800}
-              height={600}
+              className="w-full h-[60vw] max-h-[80vh] sm:h-[500px] md:h-[550px] lg:h-[600px]"
               viewBox="0 0 800 600"
               preserveAspectRatio="xMidYMid meet"
             />
             {tooltip.show && (
-              <div
-                style={{
-                  position: "absolute",
-                  top:
-                    tooltip.y + 120 > window.innerHeight
-                      ? Math.max(tooltip.y - 110, 10)
-                      : tooltip.y + 10,
-                  left:
-                    tooltip.x + 125 > window.innerWidth
-                      ? tooltip.x - 370
-                      : tooltip.x + 10,
-                  maxWidth: "200px",
-                  background: "#fff",
-                  color: "#000",
-                  border: "1px solid #ccc",
-                  padding: "6px 10px",
-                  borderRadius: "4px",
-                  fontSize: "0.875rem",
-                  pointerEvents: "none",
-                  zIndex: 100,
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                  transition: "top 0.05s ease-out, left 0.05s ease-out",
-                }}
-              >
-                {tooltip.content}
+              <div className="hidden sm:block">
+                <div
+                  style={{
+                    position: "absolute",
+                    top: Math.min(
+                      Math.max(tooltip.y + 10, 10),
+                      window.innerHeight - 100
+                    ),
+                    left: Math.min(
+                      Math.max(tooltip.x + 10, 10),
+                      window.innerWidth - 220
+                    ),
+                    maxWidth: "200px",
+                    background: "#fff",
+                    color: "#000",
+                    border: "1px solid #ccc",
+                    padding: "6px 10px",
+                    borderRadius: "4px",
+                    fontSize: "0.875rem",
+                    pointerEvents: "none",
+                    zIndex: 100,
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                  }}
+                >
+                  {tooltip.content}
+                </div>
               </div>
             )}
           </div>
@@ -228,9 +228,9 @@ export default function DetalhamentoCristas({
               </div>
             </ResizablePanel>
 
-            <div className="sm:hidden absolute top-0 left-0 right-0 h-full bg-white z-30 p-4 overflow-auto shadow-lg border border-gray-300">
-              <div className="flex justify-between items-center border-b pb-2 mb-4">
-                <span className="text-sm font-medium text-gray-800">
+            <div className="sm:hidden absolute top-0 left-0 right-0 h-full bg-white z-30 p-7 overflow-auto shadow-lg border border-gray-300">
+              <div className="flex justify-between items-center border-b pb-2">
+                <span className="text-base text-center font-medium text-gray-800">
                   Topônimos modificados pela República Turca de Chipre do Norte
                 </span>
                 <button
