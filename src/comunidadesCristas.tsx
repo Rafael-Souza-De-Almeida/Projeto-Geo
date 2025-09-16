@@ -39,7 +39,7 @@ const ComunidadesCristas = ({
       .data(base_layer.features)
       .join("path")
       .attr("d", pathGenerator)
-      .attr("fill", "#FFFACD")
+      .attr("fill", "#F5DEB3")
       .attr("stroke", "#333")
       .attr("opacity", 0)
       .transition()
@@ -58,10 +58,10 @@ const ComunidadesCristas = ({
             });
           })
           .on("mouseover", function () {
-            d3.select(this).attr("fill", "#F5DEB3");
+            d3.select(this).attr("fill", "#FFFACD");
           })
           .on("mouseout", function () {
-            d3.select(this).attr("fill", "#FFFACD");
+            d3.select(this).attr("fill", "#F5DEB3");
             setTooltip((prev) => ({ ...prev, show: false }));
           });
       });

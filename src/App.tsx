@@ -12,6 +12,7 @@ import Globo from "./globo";
 import LegendaOcupadas from "./components/project-components/legendaOcupadas";
 import LegendaCristas from "./components/project-components/legendaCristas";
 import LegendaGerais from "./components/project-components/legendaGerais";
+import { Button } from "./components/ui/button";
 
 function App() {
   const [geoData, setGeoData] = useState<any>();
@@ -53,25 +54,29 @@ function App() {
         </h1>
       </div>
       <div className="mx-16 grid grid-cols-1 gap-2 lg:flex lg:gap-8 lg:items-center">
-        <button
+        <Button
           onClick={() => handleGeoData("gerais")}
-          className="bg-blue-500 px-4 text-white py-2 cursor-pointer rounded-lg hover:bg-blue-800"
+          className="bg-blue-500 hover:bg-blue-800"
+          size={"lg"}
         >
           Chipre De jure
-        </button>
+        </Button>
 
-        <button
+        <Button
           onClick={() => handleGeoData("turcas")}
-          className="bg-red-500 px-4 text-white py-2 cursor-pointer rounded-lg hover:bg-red-800"
+          variant={"destructive"}
+          className="hover:bg-red-800"
+          size={"lg"}
         >
           Comunidades ocupadas
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => handleGeoData("cristas")}
-          className="bg-orange-500 px-4 text-white py-2 cursor-pointer rounded-lg hover:bg-orange-800"
+          className="bg-orange-500 hover:bg-orange-800"
+          size={"lg"}
         >
           Comunidades cristãs
-        </button>
+        </Button>
       </div>
       <div className="border-2 w-[480px] border-black mt-16 bg-blue-200 relative lg:w-screen lg:h-full">
         {geoData ? (

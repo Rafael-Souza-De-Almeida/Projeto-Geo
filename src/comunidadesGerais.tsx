@@ -37,7 +37,7 @@ const ComunidadesGerais = ({ geoData }: any) => {
       .data(geoData.features)
       .join("path")
       .attr("d", pathGenerator)
-      .attr("fill", "#FFFACD")
+      .attr("fill", "#F5DEB3")
       .attr("stroke", "#333")
       .style("cursor", "pointer")
       .on("mouseover", function () {
@@ -66,7 +66,7 @@ const ComunidadesGerais = ({ geoData }: any) => {
       })
       .on("mouseleave", function () {
         tooltip.style("opacity", 0);
-        d3.select(this).attr("fill", "#FFFACD");
+        d3.select(this).attr("fill", "#F5DEB3");
       });
 
     return () => {

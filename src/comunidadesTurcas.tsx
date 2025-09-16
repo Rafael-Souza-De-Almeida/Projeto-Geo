@@ -14,6 +14,12 @@ function ComunidadesTurcas({ turcasData, base_layer }: any) {
   const [selectedCommunity, setSelectedCommunity] = useState<any>();
   const [open, setOpen] = useState<boolean>(false);
 
+  function zoomed(event: any) {
+    d3.select(svgRef.current).select("g").attr("transform", event.transform);
+  }
+
+  const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+
   useEffect(() => {
     const width = 800;
     const height = 550;
